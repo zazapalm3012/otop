@@ -52,7 +52,7 @@ session_start();
                     $pId = array_column($_SESSION['cart'], 'pId');
                     
                     $total=0;
-                    $num=0;
+                 
                     $sql = $conn->select_product_by_id($pId);
                     while($data = mysqli_fetch_array($sql)){
                         

@@ -10,16 +10,11 @@ if (isset($_POST['p_add'])){
   {  
     $_SESSION['count']=array();
       $item_array_id = array_column($_SESSION['cart'],'pId');     
-      $item_array_count = array_column($_SESSION['count'],'pId');     
+
   
       if(in_array(($_POST['pId']),$item_array_id)){           //add สินค้าซ้ำ
           echo '<script> alert ("มีสินค้านี้อยู่ในตะกร้าแล้ว")</script>';
           echo '<script> window.location = "firstpage.php"</script>';
-          $item_array = array('pId'=> $_POST['pId']);
-          $_SESSION['count'][$count] = $item_array;
-
-          print_r($_SESSION['count']);
-          print_r( $_SESSION['count']);
 
       }
       else   
@@ -27,24 +22,13 @@ if (isset($_POST['p_add'])){
           $count = count($_SESSION['cart']);         //add สินค้าไม่ซ้ำ
           $item_array = array('pId'=> $_POST['pId']);
           $_SESSION['cart'][$count] = $item_array;
-          $_SESSION['count'][$count] = $item_array;
-
-          print_r($_SESSION['count']);
-
-          /*$_SESSION['strQty'][$item_array_id] = 1;  
-          print_r($item_array_cart );*/
-
       } 
 
   }
   else   ///ไม่มีสินค้า
   {
-    
       $item_array = array('pId'=>$_POST['pId']);
       $_SESSION['cart'][0] = $item_array;
-      echo  "\xA";
-      
-  
   }
 }
 
