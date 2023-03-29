@@ -50,10 +50,12 @@ session_start();
                     <?php
                 
                     $pId = array_column($_SESSION['cart'], 'pId');
+                    
                     $total=0;
                     $num=0;
                     $sql = $conn->select_product_by_id($pId);
                     while($data = mysqli_fetch_array($sql)){
+                        
                         $cart_element = '
                         <form action="cart.php" method ="post">
                         <div class="container-fluid pt-1 bg-light ">
